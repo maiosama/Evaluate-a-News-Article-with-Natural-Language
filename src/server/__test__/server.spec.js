@@ -1,6 +1,6 @@
 // to solve ReferenceError: regeneratorRuntime is not defined
 
-import 'babel-polyfill'
+const babelPolyfill = require('babel-polyfill')
 import { message } from '../mockAPI';
 const app = require("../index");
 const supertest= require("supertest");
