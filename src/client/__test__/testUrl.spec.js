@@ -1,4 +1,4 @@
-const babelPolyfill = require('babel-polyfill')
+//const babelPolyfill = require('babel-polyfill')
 import isUrlValid from '../js/checkURL'
 window.alert = jest.fn();
 
