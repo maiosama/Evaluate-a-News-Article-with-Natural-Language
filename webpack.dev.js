@@ -4,6 +4,8 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const supertest = require('supertest');
+const babelTransformRuntime = require("@babel/core").transformSync("code" );
+
 
 
 module.exports = {
@@ -52,6 +54,16 @@ module.exports = {
             protectWebpackAssets: false
         }),
         // TODO: configure workbox-webpack-plugin
-        new WorkboxPlugin.GenerateSW()
+        new WorkboxPlugin.GenerateSW(),
+        [
+             "@babel/plugin-transform-runtime",
+            {
+              "absoluteRuntime": false,
+              "corejs": 2,
+              "helpers": true,
+              "regenerator": true,
+              "version": "^7.7.4"
+            }
+          ]
     ]
 }
